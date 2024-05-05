@@ -10,9 +10,7 @@ function fatorial($n) {
         for ($i = 1; $i <= $n; $i++) {
             $resultado *= $i;
         }
-        
-        $calculo = "$n! = $resultado";
-        registrarCalculoNoHistorico($calculo);
+
         return $resultado;
     }
 }
