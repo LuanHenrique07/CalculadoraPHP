@@ -10,6 +10,9 @@ function fatorial($n) {
         for ($i = 1; $i <= $n; $i++) {
             $resultado *= $i;
         }
+        
+        $calculo = "$n! = $resultado";
+        registrarCalculoNoHistorico($calculo);
         return $resultado;
     }
 }
@@ -48,6 +51,13 @@ function Calculo($valor1, $valor2, $operador ) {
             return $resultado;
             break;
     }
+
+    $calculo = "$valor1 $operador $valor2 = $resultado";
+    registrarCalculoNoHistorico($calculo);
 }
 
+function registrarCalculoNoHistorico($calculo) {
+    $arquivo = 'historico.txt';
+    file_put_contents($arquivo, $calculo . PHP_EOL, FILE_APPEND);
+}
 ?>
