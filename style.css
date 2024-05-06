@@ -5,22 +5,23 @@ body {
 }
 
 .titulo {
+    width: 500px;
     text-align: center;
-    padding: 2px;
+    padding: 20px;
     background-color: #007bff;
-    margin-left: 38.5%;
-    margin-right: 38.5%;
     color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px auto;
 }
 
+
 .Calculadora {
-    width: 300px;
+    width: 500px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    display: flex;
-    flex-direction: column;
     background-color: #615f5f;
 }
 
@@ -45,9 +46,17 @@ body {
     padding: 5px;
     border-radius: 3px;
     border: 1px solid #ccc;
+    display: inline-block;
 }
 
-.Calculadora input[type="submit"] {
+.Calculadora .botoes {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.Calculadora .botoes input[type="submit"] {
+    margin: 0 5px;
     background-color: #007bff;
     color: white;
     border: none;
@@ -55,7 +64,7 @@ body {
     cursor: pointer;
 }
 
-.Calculadora input[type="submit"]:hover {
+.Calculadora .botoes input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
@@ -64,7 +73,20 @@ body {
     text-decoration: none;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-left: 38.5%;
-    margin-right: 38.5%;
+    margin: 20px auto;
+    padding: 20px;
+    width: 500px;
 }
 
+.Historico h2 {
+    margin-top: 0;
+}
+
+.Historico ul {
+    list-style: none;
+    padding: 0;
+}
+
+.Historico li {
+    margin-bottom: 5px;
+}

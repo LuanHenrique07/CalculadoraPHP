@@ -49,12 +49,15 @@ if (isset($_POST['memoria_recall'])) {
          <label for="valor2">Valor 2:</label>
          <input type="number" id="valor2" name="valor2" value="<?php echo $valor2 !== '' ? $valor2 : ''; ?>"><br><br>
 
-         <input type="submit" class="Calcular" value="Calcular">
+         <div class="botoes">
+            <input type="submit" class="Calcular" value="Calcular">
 
-         <input type="submit" name="memoria" value="M">
-         <input type="submit" name="memoria_recall" value="Recuperar Memória">
+            <input type="submit" name="memoria" value="M">
+            <input type="submit" name="memoria_recall" value="Recuperar Memória">
 
-         <input type="submit" name="apagar_historico" value="Apagar Histórico">
+            <input type="submit" name="apagar_historico" value="Apagar Histórico">
+         </div>
+         
       </form>
 
       <?php
