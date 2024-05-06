@@ -24,6 +24,7 @@ if (isset($_POST['memoria_recall'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora PHP</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
    <div class="titulo">
@@ -48,7 +49,7 @@ if (isset($_POST['memoria_recall'])) {
          <label for="valor2">Valor 2:</label>
          <input type="number" id="valor2" name="valor2" value="<?php echo $valor2 !== '' ? $valor2 : ''; ?>"><br><br>
 
-         <input type="submit" value="Calcular">
+         <input type="submit" class="Calcular" value="Calcular">
 
          <input type="submit" name="memoria" value="M">
          <input type="submit" name="memoria_recall" value="Recuperar Memória">
@@ -89,7 +90,7 @@ if (isset($_POST['memoria_recall'])) {
       ?>  
    </div>
 
-   <div class="historico">
+   <div class="Historico">
     <h2>Histórico</h2>
       <ul>
          <?php
