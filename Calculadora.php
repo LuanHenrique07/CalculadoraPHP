@@ -80,8 +80,10 @@ if (isset($_POST['memoria_recall'])) {
                   }
                }
 
+               echo "<div class='resultado'>";
                echo "<br></br>";
                echo "Resultado: $resultado";
+               echo "</div>";
 
                $arquivo = 'historico.txt';
                $calculo = "$valor1 $operador " . ($valor2 !== '' ? $valor2 : '') . " = $resultado";
