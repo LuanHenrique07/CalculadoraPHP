@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+$valor1 = isset($_POST['valor1']) ? $_POST['valor1'] : '';
+$valor2 = isset($_POST['valor2']) ? $_POST['valor2'] : '';
+$operador = isset($_POST['operador']) ? $_POST['operador'] : '';
+
+if (isset($_POST['memoria'])) {
+    $_SESSION['memoria_valor1'] = $valor1;
+    $_SESSION['memoria_valor2'] = $valor2;
+    $_SESSION['memoria_operador'] = $operador;
+}
+
+if (isset($_POST['memoria_recall'])) {
+    $valor1 = isset($_SESSION['memoria_valor1']) ? $_SESSION['memoria_valor1'] : '';
+    $valor2 = isset($_SESSION['memoria_valor2']) ? $_SESSION['memoria_valor2'] : '';
+    $operador = isset($_SESSION['memoria_operador']) ? $_SESSION['memoria_operador'] : '';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +33,7 @@
    <div class="Calculadora">
       <form action="" method="POST">
          <label for="valor1">Valor 1:</label>
-         <input type="number" id="valor1" name="valor1" required><br><br>
+         <input type="number" id="valor1" name="valor1" value="<?php echo $valor1; ?>" required><br><br>
          
          <label for="operador">Operador:</label>
          <select id="operador" name="operador" required>
@@ -26,9 +46,14 @@
          </select><br><br>
 
          <label for="valor2">Valor 2:</label>
-         <input type="number" id="valor2" name="valor2"><br><br>
+         <input type="number" id="valor2" name="valor2" value="<?php echo $valor2 !== '' ? $valor2 : ''; ?>"><br><br>
 
          <input type="submit" value="Calcular">
+
+         <input type="submit" name="memoria" value="M">
+         <input type="submit" name="memoria_recall" value="Recuperar Memória">
+
+         <input type="submit" name="apagar_historico" value="Apagar Histórico">
       </form>
 
       <?php
@@ -51,12 +76,11 @@
                   }
                }
 
-
+               echo "<br></br>";
                echo "Resultado: $resultado";
 
-
                $arquivo = 'historico.txt';
-               $calculo = "$valor1 $operador " . ($valor2 ?? '') . " = $resultado";
+               $calculo = "$valor1 $operador " . ($valor2 !== '' ? $valor2 : '') . " = $resultado";
                file_put_contents($arquivo, $calculo . PHP_EOL, FILE_APPEND);
             } else {
                echo "Por favor, preencha todos os campos!";
@@ -90,10 +114,6 @@
             }
          ?>
       </ul>
-    
-   <form action="" method="POST">
-      <input type="submit" name="apagar_historico" value="Apagar Histórico">
-   </form>
 </div>
     
  </body>
